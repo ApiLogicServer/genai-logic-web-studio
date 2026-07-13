@@ -27,7 +27,7 @@ codespaces_patch: |
 
 ### Governed Executable Requirements
 
-One prompt, or your existing database, **builds a working API and Admin App**, then you declare business logic **you can read, trust, and maintain** — *5 rules instead of ~200 lines of code*.
+AI builds **enterprise-class systems** — from one prompt or your existing database, *5 rules instead of ~200 lines of code* — then hands off cleanly to **Dev/DevOps for extension and deployment**.
 
 &nbsp;
 
@@ -131,7 +131,7 @@ Either path gets you the same thing: a working API and Admin App **plus the gove
 &nbsp;
 
 <details markdown>
-<summary>One more thing — that wasn't just a database, it's governing logic</summary>
+<summary>One more thing — that's governing logic: 5 rules, not 200 lines</summary>
 
 &nbsp;
 
