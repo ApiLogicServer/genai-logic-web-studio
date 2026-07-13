@@ -107,9 +107,6 @@ On Placing Orders, Check Credit
     3. The Order's amount_total is the sum of the Item amount
     4. The Item amount is the quantity * unit_price
     5. The Item unit_price is copied from the Product unit_price
-
-Use case: App Integration
-    1. Publish the Order to Kafka topic 'order_shipping' when the date_shipped is not None.
 ```
 
 > **Running in Codespaces?** During project creation, a browser tab may auto-open (or offer to) showing it running — safe to decline or dismiss.
@@ -136,9 +133,6 @@ On Placing Orders, Check Credit
     3. The Order's amount_total is the sum of the Item amount
     4. The Item amount is the quantity * unit_price
     5. The Item unit_price is copied from the Product unit_price
-
-Use case: App Integration
-    1. Publish the Order to Kafka topic 'order_shipping' when the date_shipped is not None.
 ```
 
 Either path gets you the same thing: a working API and Admin App **plus the governing logic above** — not just a static schema.
@@ -147,7 +141,7 @@ Either path gets you the same thing: a working API and Admin App **plus the gove
 
 &nbsp;
 
-**One more thing before you run it:** the prompt above didn't just describe a database — the "Check Credit" and "Use case" blocks are **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain. See "here's how" right below for what that looks like once it's running, and where to go looking for the rules themselves.
+**One more thing before you run it:** the prompt above didn't just describe a database — the "Check Credit" block is **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain. See "here's how" right below for what that looks like once it's running, and where to go looking for the rules themselves.
 
 &nbsp;
 
@@ -386,6 +380,48 @@ genai-logic create --project_name=basic_demo --db_url=sqlite:///samples/dbs/basi
 </details>
 
 &nbsp;
+
+&nbsp;
+
+## 🔌 Beyond the UI — APIs & Messaging
+
+You don't need this on day one — the admin app and the rules you just saw are enough to get going. But once the basics feel natural, this is worth five minutes: the same governed logic you just watched enforce a credit check runs identically no matter how a transaction arrives — Admin App, API, or message queue. No separate logic to maintain per channel, and no gap for compliance to worry about.
+
+&nbsp;
+
+<details markdown>
+<summary>APIs — partner-specific formats, same governed logic</summary>
+
+&nbsp;
+
+Every project already has a full REST API (JSON:API — filtering, sorting, pagination, related-data access), generated automatically — that's what you saw in Swagger. Beyond that, describe a **custom API** for a specific partner's format in plain English, and your AI assistant builds it:
+
+```
+Accept orders from partner Acme in this format: {"Account": "...", "Items": [{"Name": "...", "QuantityOrdered": ...}]}.
+Map Account to Customer by name, Items.Name to Product by name.
+Enforce the same Check Credit rules as regular orders.
+```
+
+A partner-format order and an Admin-App order run through the identical commit point — same rules, same guarantees, zero duplicated logic.
+
+</details>
+
+&nbsp;
+
+<details markdown>
+<summary>Messages — async delivery via Kafka, for when the receiving system might be down</summary>
+
+&nbsp;
+
+APIs assume the other system is up right now. Message brokers like Kafka don't: you **publish** a message to a **topic**, the broker guarantees delivery even if the receiver is offline, and other systems **subscribe** to that topic — usually called "pub/sub." Describe it the same way you'd describe anything else:
+
+```
+When an Order's date_shipped is set, publish it to Kafka topic 'order_shipping'.
+```
+
+You can try this without standing up Kafka at all — a debug endpoint sends a test message straight to the logic, so you can confirm the behavior before wiring up real infrastructure.
+
+</details>
 
 &nbsp;
 
