@@ -141,7 +141,14 @@ Either path gets you the same thing: a working API and Admin App **plus the gove
 
 &nbsp;
 
-**One more thing before you run it:** the prompt above didn't just describe a database — the "Check Credit" block is **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain. See "here's how" right below for what that looks like once it's running, and where to go looking for the rules themselves.
+<details markdown>
+<summary>One more thing — that wasn't just a database, it's governing logic</summary>
+
+&nbsp;
+
+The prompt above didn't just describe a database — the "Check Credit" block is **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain. See "here's how" right below for what that looks like once it's running, and where to go looking for the rules themselves.
+
+</details>
 
 &nbsp;
 
