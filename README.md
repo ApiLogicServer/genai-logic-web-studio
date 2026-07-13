@@ -29,18 +29,7 @@ codespaces_patch: |
 
 One prompt, or your existing database, **builds a working API and Admin App**, then you declare business logic **you can read, trust, and maintain** — *5 rules instead of ~200 lines of code*.
 
-<details markdown>
-<summary>The Key Idea: Combine AI with Declarative Logic</summary>
-
-<br>Leverage AI for what it's great at — database design, data mapping, and more. Your AI assistant does the translation: plain English, Gherkin, even actual regulation text — it reads your business logic and translates it into rules, not code.
-
-You'll see the enforcement yourself in a few minutes: those rules run at **one commit point**, no matter which path the transaction came in on — API, MCP, agent, Kafka. **No bypass.**
-
-And you're not alone throughout: ask your AI assistant anything — architecture, rules, debugging, deployment, or how the system works.
-
-</details>
-
-<br>
+&nbsp;
 
 This is the start page for the [GenAI-Logic Manager](https://apilogicserver.github.io/Docs/Manager) — where you manage projects, create notes and resources, etc.
 
