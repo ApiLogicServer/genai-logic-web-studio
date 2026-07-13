@@ -79,6 +79,21 @@ You're already running in GitHub Codespaces — a cloud VS Code environment in y
 <details markdown>
 <summary>The Ideal — executable business prompts, held to an enterprise standard</summary>
 
+<br>The goal here isn't a demo — it's an **enterprise-class** system you can trust and maintain:
+
+1. **Dev Friendly** — standard language, standard tooling; devs can extend this project in the IDE they already use.
+2. **DevOps Friendly** — containers; deploy to cloud or on-prem.
+3. **Enterprise Friendly** — pluggable security (SQL or Keycloak), full REST API, event/messaging integration (Kafka, webhooks) — built in, not bolted on.
+
+See it for yourself in the two examples below.
+
+</details>
+
+&nbsp;
+
+<details markdown>
+<summary>Example — Existing Database</summary>
+
 <br>Say this to your AI assistant (allow several minutes):
 
 ```
@@ -97,51 +112,46 @@ Use case: App Integration
     1. Publish the Order to Kafka topic 'order_shipping' when the date_shipped is not None.
 ```
 
-<details markdown>
-<summary>Starting from a new database instead?</summary>
-
-&nbsp;
-
-The prompt above starts from an existing database — the common real-world case, and much faster (no schema design step). You *could* have AI design a new database from scratch instead — drop the `from samples/dbs/basic_demo.sqlite` clause from the first line above (allow 8-10 mins).
-
-</details>
-
-&nbsp;
-
 > **Running in Codespaces?** During project creation, a browser tab may auto-open (or offer to) showing it running — safe to decline or dismiss.
 
-The goal here isn't a demo — it's an **enterprise-class** system you can trust and maintain. That's exactly what gets tested next.
-
 </details>
 
 &nbsp;
 
 <details markdown>
-<summary>AI is great — but logic-as-code is hard to Read, Trust, and Maintain — here's why</summary>
+<summary>Example — New Database</summary>
 
-<br>AI is genuinely good at UI, data mapping, boilerplate, etc — no argument there. **Business logic is the exception.**
+<br>No existing database? Same idea, same governing logic — just describe the tables instead of pointing at a `.sqlite` file (allow 8-10 mins):
 
-Most developers estimate it requires about **half the development and debugging effort** on a real system — not a side concern.
+```
+Create basic_demo_new (no existing database) with:
+    Customer: name, balance, credit_limit
+    Order: customer, date_shipped, notes
+    Item: order, product, quantity, unit_price, amount
+    Product: name, unit_price
 
-Left unguided, any AI assistant — including the one that just built basic_demo for you — would default to procedural code for logic like this. Ask it directly, and you get three problems:
+On Placing Orders, Check Credit
+    1. The Customer's balance is less than the credit limit
+    2. The Customer's balance is the sum of the Order amount_total where date_shipped is null
+    3. The Order's amount_total is the sum of the Item amount
+    4. The Item amount is the quantity * unit_price
+    5. The Item unit_price is copied from the Product unit_price
 
-- **Not readable.** [procedural/credit_service.py](samples/basic_demo_logic_gov/logic/procedural/credit_service.py) — ~200 lines for those same 5 requirements. Open it and judge for yourself.
-- **Not trustworthy.** The procedural version shipped 2 real bugs — found only by specifically testing what happens when a row is reparented to a new owner: [the A/B test](samples/basic_demo_logic_gov/logic/procedural/declarative-vs-procedural-comparison.md). Root cause: **path confusion** — procedural code must enumerate every change path (insert, update, delete, reparent) by hand, and it's easy to miss one.
-- **Not maintainable.** Every future change means re-checking every execution path *and* getting the order right, by hand, again. Root causes: **path confusion** and **manual ordering** — the same problem as above, back for round two. Honestly? At some point you'd stop checking and just hope testing catches it.
+Use case: App Integration
+    1. Publish the Order to Kafka topic 'order_shipping' when the date_shipped is not None.
+```
 
-Even when AI generates procedural code that happens to work today, there's a governance problem underneath: nobody can audit ~200 lines of event-handler logic at a glance — not the next developer, not compliance, not you in six months.
-
-Even at ~200 lines for just 5 requirements, this wasn't just hard to read — it had bugs in it. Now picture a real system: 10-20X the requirements of this example, and proportionally more procedural code to match. At that scale, an auditor can't read it all — they can only sample, and hope. **Unreadable at scale is ungovernable at scale.**
-
-There's a structural problem underneath the bugs, too: procedural code cannot represent transitive dependencies reliably. The AI diagnosed this itself, unprompted:
-
-> *"Business logic is not a coding problem. It's a dependency graph problem."*
-
-That's not a capability gap. No amount of AI capability fixes a representation problem.
-
-**We're deeply impressed with AI — this is about closing the one gap it has: logic.** That's next.
+Either path gets you the same thing: a working API and Admin App **plus the governing logic above** — not just a static schema.
 
 </details>
+
+&nbsp;
+
+**One more thing before you run it:** the prompt above didn't just describe a database — the "Check Credit" and "Use case" blocks are **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain. See "here's how" right below for what that looks like once it's running, and where to go looking for the rules themselves.
+
+&nbsp;
+
+> **Want a guided tour instead of reading?** Once `basic_demo` is running, just say **"Guide me through basic_demo"** — a 30-45 minute hands-on walkthrough (rules, security, debugging, B2B/Kafka integration) where your AI assistant drives and you follow along in the running app.
 
 &nbsp;
 
@@ -160,7 +170,7 @@ That's not a capability gap. No amount of AI capability fixes a representation p
 1. **Data model** — `database/models.py`
 2. **Full JSON:API** — Swagger, pagination, optimistic locking (`api/expose_api_models.py` — 52 lines, zero per-table code)
 3. **Admin App** — multi-table, with navigations and lookups (`ui/admin/admin.yaml` — simple YAML, not HTML/JS)
-4. **Business logic** — [logic_discovery/place_order/check_credit.py](samples/basic_demo_logic_gov/logic/logic_discovery/place_order/check_credit.py) — 5 rules (~40X less), same requirements, same AI, 0 bugs
+4. **Business logic** — [logic_discovery/place_order/check_credit.py](samples/basic_demo_sample/logic/logic_discovery/place_order/check_credit.py) — 5 rules (~40X less), same requirements, same AI
 
 **Difference 2: the logic itself is declarative** — more on why that matters below.
 
@@ -200,7 +210,7 @@ The save fails — note the dialog. Why? Let's look.
 <details markdown>
 <summary>&emsp;&emsp;2. Debug it — standard logging, standard debugger</summary>
 
-<br>No new tools required. The rule chain that just fired is in the log — plain text, readable in your terminal or editor: [sample trace](samples/basic_demo_logic_gov/logs/als-sample.log). A live run writes the same thing to the standard log, `logs/als.log`.
+<br>No new tools required. The rule chain that just fired is written to the standard log — plain text, readable in your terminal or editor: `logs/als.log`.
 
 Every rule is a plain Python function or lambda. Set a breakpoint on any `calling=` function or `as_condition=` lambda in your IDE, exactly like you would anywhere else in the codebase — no proprietary debugger, no special UI.
 
