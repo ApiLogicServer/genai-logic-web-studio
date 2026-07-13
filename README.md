@@ -37,12 +37,16 @@ AI builds **enterprise-class systems** — from one prompt or your existing data
 
 ## 🤖 AI Assistance
 
-**Select the ProjectStudio agent** from the dropdown at the bottom of the Copilot Chat panel (where Ask / Edit / Agent live) — that's it, no other setup:
+**In the Copilot Chat panel, type this and press Enter:**
+
+```
+/agent .github/agents/projectstudio.agent.md
+```
+
+That's it — ProjectStudio will greet you and ask what you want to build. No "Please load" needed; the model is picked automatically.
 
 ![select the ProjectStudio agent](docs/images/select-projectstudio-agent.png)
-<!-- TODO(Val): replace with a real screenshot of the agent dropdown showing "ProjectStudio" selected -->
-
-ProjectStudio pre-loads the project's instructions and picks the model automatically — **you do not need to say "Please load" anything.** It'll greet you and ask what you want to build.
+<!-- TODO(Val): replace with a real screenshot of the chat panel right after running the /agent command above -->
 
 <details markdown>
 <summary>Why: pins the model to Claude Sonnet 5 and pre-loads instructions</summary>
@@ -51,7 +55,9 @@ ProjectStudio pre-loads the project's instructions and picks the model automatic
 
 This workspace ships a custom **ProjectStudio** agent — it prefers **Claude Sonnet 5** (falling back automatically to 4.6, then 4.5, if 5 isn't on your plan yet) and pre-loads the project's instructions automatically, no extra step needed. "Ask" mode will not work — ProjectStudio needs to create files and run commands.
 
-Don't see **ProjectStudio** in the dropdown? Use **Agent** mode instead, then paste:
+You may also see **ProjectStudio** listed directly in the chat mode dropdown (bottom of the input box, where Ask/Edit/Agent live) — selecting it there works too, when it shows up. It's been inconsistent across VS Code versions, so the typed command above is the reliable path for now.
+
+Neither working? Use **Agent** mode instead, then paste:
 
 ```
 Please load `.github/copilot-instructions.md`.
@@ -75,9 +81,10 @@ You're already running in GitHub Codespaces — a cloud VS Code environment in y
 
 <br>The goal here isn't a demo — it's an **enterprise-class** system you can trust and maintain:
 
-1. **Dev Friendly** — standard language, standard tooling; devs can extend this project in the IDE they already use.
-2. **DevOps Friendly** — containers; deploy to cloud or on-prem.
-3. **Enterprise Friendly** — pluggable security (SQL or Keycloak), full REST API, event/messaging integration (Kafka, webhooks) — built in, not bolted on.
+1. **User Friendly** — no database design or screen painting to learn; it's all automated from natural language.
+2. **Dev Friendly** — standard language, standard tooling; devs can extend this project in the IDE they already use.
+3. **DevOps Friendly** — containers; deploy to cloud or on-prem.
+4. **Enterprise Friendly** — pluggable security (SQL or Keycloak), full REST API, event/messaging integration (Kafka, webhooks) — built in, not bolted on.
 
 See it for yourself in the two examples below.
 
