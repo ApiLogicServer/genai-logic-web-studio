@@ -79,7 +79,14 @@ See it for yourself in the two examples below.
 <details markdown>
 <summary>Example — Existing Database, including logic you can read, trust, and maintain</summary>
 
-<br>Say this to your AI assistant (allow several minutes):
+<br>Five steps, expand each in turn (allow several minutes for the first):
+
+&nbsp;
+
+<details markdown>
+<summary>&emsp;&emsp;1. Declare it — governing logic, not documentation</summary>
+
+<br>Say this to your AI assistant:
 
 ```
 Create basic_demo from samples/dbs/basic_demo.sqlite (customers, orders, products).
@@ -96,12 +103,7 @@ On Placing Orders, Check Credit
 
 > **Running in Codespaces?** During project creation, a browser tab may auto-open (or offer to) showing it running — safe to decline or dismiss.
 
-&nbsp;
-
-<details markdown>
-<summary>&emsp;&emsp;1. Declare it — the prompt above is governing logic, not documentation</summary>
-
-<br>The prompt above didn't just describe a database — the "Check Credit" block is **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain.
+The prompt above didn't just describe a database — the "Check Credit" block is **governing logic**, not documentation. Left unguided, an AI assistant would default to procedural code for rules like these — readable at 5 rules, but every future change means re-checking every code path by hand, and that stops scaling long before a real system's requirement count does. Declarative rules avoid that: they're specifications the engine enforces automatically, not procedure you maintain.
 
 That's what you just declared. Next: run it, and see it enforced.
 
