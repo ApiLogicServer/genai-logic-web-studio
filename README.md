@@ -39,6 +39,8 @@ Now **Business Analysts and Product Managers** can build **enterprise-class syst
 
 ## 🤖 AI Assistance
 
+Any AI assistant works here — Claude Code, the Claude Code plugin, GitHub Copilot, etc. The steps below are for **GitHub Copilot in VS Code**; if you're using something else, the same idea applies, just paste the command below into whatever chat/agent interface you have open.
+
 In the Copilot Chat panel, click the **Auto** pill at the bottom of the chat box and pick **Claude Sonnet 5** from the list. **Don't see it?** Click **Other Models** near the bottom of that same list to reveal it. Still not there (Free/Student plans), leave it on **Auto**. Then type and Enter:
 
 ```
