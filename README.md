@@ -37,26 +37,33 @@ Now **Business Analysts and Product Managers** can build **enterprise-class syst
 
 ## 🤖 AI Assistance
 
+In the Copilot Chat panel, set mode to **Agent**, pick **Claude Sonnet** as the model (if your plan offers it), then type and Enter:
+
+```
+/agent .github/agents/genai-logic-web-studio.agent.md
+```
+
+If `/agent` isn't recognized by your Copilot version, paste this instead:
+
+```
+Please load `.github/copilot-instructions.md`.
+```
+
+<details markdown>
+<summary>Detailed steps, and what this costs</summary>
+
+&nbsp;
+
+**Step by step:**
 1. Open the **Chat** panel (left activity bar) and confirm the mode dropdown at the bottom of the chat box says **Copilot**, not Claude Code/Gemini/Codex.
 2. Set the mode dropdown to **Agent** (not Ask or Edit).
 3. **If you're on Copilot Pro or above:** open the model picker (next to the mode dropdown) and select **Claude Sonnet**.
-   **If you're on the Free or Student plan:** skip this — manual model choice isn't available on those plans (see details below); leave it on **Auto**.
-4. Type this in the chat box and press Enter:
-
-   ```
-   /agent .github/agents/genai-logic-web-studio.agent.md
-   ```
-
-   If `/agent` isn't recognized by your Copilot version, paste this instead:
-
-   ```
-   Please load `.github/copilot-instructions.md`.
-   ```
-
-<details markdown>
-<summary>Which model, and what does this cost?</summary>
+   **If you're on the Free or Student plan:** skip this — manual model choice isn't available on those plans (see below); leave it on **Auto**.
+4. Type the `/agent` command above (or the `Please load` fallback) and press Enter.
 
 &nbsp;
+
+**Which model, and what does this cost?**
 
 **Model selection is plan-dependent** (GitHub changed this June 2026):
 - **Copilot Free / Student:** Chat and Agent mode only run in **Auto** — GitHub picks the model for you from a pool that includes Claude Sonnet 4.6 among others. You cannot force Claude specifically.
