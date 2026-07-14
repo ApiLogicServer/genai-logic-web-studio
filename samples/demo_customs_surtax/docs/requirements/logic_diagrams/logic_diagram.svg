@@ -1,0 +1,338 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="925pt" height="720pt" viewBox="18.80 18.80 925.27 720.40">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(28.8 728.8)">
+<title>logic</title>
+<polygon fill="white" stroke="none" points="-28.8,28.8 -28.8,-728.8 848.45,-728.8 848.45,28.8 -28.8,28.8" />
+<text xml:space="preserve" text-anchor="start" x="251.95" y="-684.65" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="13.00">Logic Diagram — samples/demo_customs_surtax</text>
+
+<g id="node1" class="node">
+<title>TRIGGER</title>
+<polygon fill="#e8f5e9" stroke="none" points="112.02,-61.5 112.02,-94.5 269.52,-94.5 269.52,-61.5 112.02,-61.5" />
+<text xml:space="preserve" text-anchor="start" x="121.02" y="-76.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="#27ae60">⚡ SurtaxLineItem inserted</text>
+<polygon fill="none" stroke="#27ae60" stroke-width="2" points="113.02,-62.5 113.02,-93.5 268.52,-93.5 268.52,-62.5 113.02,-62.5" />
+</g>
+
+<g id="node6" class="node">
+<title>SurtaxLineItem</title>
+<polygon fill="#4a6fa5" stroke="none" points="418.52,-133 418.52,-149 665.02,-149 665.02,-133 418.52,-133" />
+<text xml:space="preserve" text-anchor="start" x="499.02" y="-137.55" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white"> SurtaxLineItem </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-115 418.52,-133 425.52,-133 425.52,-115 418.52,-115" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-121" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-115 425.52,-133 658.02,-133 658.02,-115 425.52,-115" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-121" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> customs_value </text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-115 658.02,-133 665.02,-133 665.02,-115 658.02,-115" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-121" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-97 418.52,-115 425.52,-115 425.52,-97 418.52,-97" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-103" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-97 425.52,-115 658.02,-115 658.02,-97 425.52,-97" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-102.55" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> base_duty_amount </text>
+<text xml:space="preserve" text-anchor="start" x="526.02" y="-102.55" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="529.02" y="-102.55" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= (customs_value or 0) * (bas...</text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-97 658.02,-115 665.02,-115 665.02,-97 658.02,-97" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-103" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-79 418.52,-97 425.52,-97 425.52,-79 418.52,-79" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-85" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-79 425.52,-97 658.02,-97 658.02,-79 425.52,-79" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-84.55" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> surtax_amount </text>
+<text xml:space="preserve" text-anchor="start" x="505.77" y="-84.55" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="508.77" y="-84.55" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= (customs_value or 0) * (cus...</text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-79 658.02,-97 665.02,-97 665.02,-79 658.02,-79" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-85" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-61 418.52,-79 425.52,-79 425.52,-61 418.52,-61" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-67" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-61 425.52,-79 658.02,-79 658.02,-61 425.52,-61" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-66.55" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> surtax_applicable </text>
+<text xml:space="preserve" text-anchor="start" x="517.77" y="-66.55" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="520.77" y="-66.55" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= 1 if (customs_entry.surtax_...</text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-61 658.02,-79 665.02,-79 665.02,-61 658.02,-61" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-67" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-43 418.52,-61 425.52,-61 425.52,-43 418.52,-43" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-49" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-43 425.52,-61 658.02,-61 658.02,-43 425.52,-43" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-49" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> customs_entry </text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-43 658.02,-61 665.02,-61 665.02,-43 658.02,-43" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-49" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-25 418.52,-43 425.52,-43 425.52,-25 418.52,-25" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-31" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-25 425.52,-43 658.02,-43 658.02,-25 425.52,-25" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-31" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> is_steel_derivative </text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-25 658.02,-43 665.02,-43 665.02,-25 658.02,-25" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-31" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="418.52,-7 418.52,-25 425.52,-25 425.52,-7 418.52,-7" />
+<text xml:space="preserve" text-anchor="start" x="420.52" y="-13" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="425.52,-7 425.52,-25 658.02,-25 658.02,-7 425.52,-7" />
+<text xml:space="preserve" text-anchor="start" x="428.52" y="-13" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> base_duty_rate </text>
+<polygon fill="#b8cce8" stroke="none" points="658.02,-7 658.02,-25 665.02,-25 665.02,-7 658.02,-7" />
+<text xml:space="preserve" text-anchor="start" x="660.02" y="-13" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="#c0392b" stroke-width="3" points="417.02,-5.5 417.02,-150.5 666.52,-150.5 666.52,-5.5 417.02,-5.5" />
+</g>
+
+<g id="edge6" class="edge">
+<title>TRIGGER-&gt;SurtaxLineItem</title>
+<path fill="none" stroke="#27ae60" stroke-width="2" d="M277.49,-78C316.79,-78 356.08,-78 395.37,-78" />
+<polygon fill="#27ae60" stroke="#27ae60" stroke-width="2" points="405.13,-78 395.13,-82.5 402.57,-78.5 395.13,-78.5 395.13,-78 395.13,-77.5 402.57,-77.5 395.13,-73.5 405.13,-78" />
+</g>
+
+<g id="node2" class="node">
+<title>CountryOrigin</title>
+<polygon fill="#4a6fa5" stroke="none" points="333.27,-639.5 333.27,-655.5 418.27,-655.5 418.27,-639.5 333.27,-639.5" />
+<text xml:space="preserve" text-anchor="start" x="335.27" y="-644.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white"> CountryOrigin </text>
+<polygon fill="#b8cce8" stroke="none" points="333.27,-621.5 333.27,-639.5 341.94,-639.5 341.94,-621.5 333.27,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="336.1" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="341.94,-621.5 341.94,-639.5 409.6,-639.5 409.6,-621.5 341.94,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="344.94" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> surtax_rate </text>
+<polygon fill="#b8cce8" stroke="none" points="409.6,-621.5 409.6,-639.5 418.27,-639.5 418.27,-621.5 409.6,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="412.44" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="#4a6fa5" points="332.27,-620.5 332.27,-656.5 419.27,-656.5 419.27,-620.5 332.27,-620.5" />
+</g>
+
+<g id="node3" class="node">
+<title>CustomsEntry</title>
+<polygon fill="#4a6fa5" stroke="none" points="540.27,-486.25 540.27,-502.25 779.27,-502.25 779.27,-486.25 540.27,-486.25" />
+<text xml:space="preserve" text-anchor="start" x="618.9" y="-490.8" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white"> CustomsEntry </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-468.25 540.27,-486.25 547.27,-486.25 547.27,-468.25 540.27,-468.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-474.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-468.25 547.27,-486.25 772.27,-486.25 772.27,-468.25 547.27,-468.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-474.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> total_customs_value </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-468.25 772.27,-486.25 779.27,-486.25 779.27,-468.25 772.27,-468.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-474.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-450.25 540.27,-468.25 547.27,-468.25 547.27,-450.25 540.27,-450.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-456.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-450.25 547.27,-468.25 772.27,-468.25 772.27,-450.25 547.27,-450.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-456.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> total_duty_amount </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-450.25 772.27,-468.25 779.27,-468.25 779.27,-450.25 772.27,-450.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-456.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-432.25 540.27,-450.25 547.27,-450.25 547.27,-432.25 540.27,-432.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-438.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-432.25 547.27,-450.25 772.27,-450.25 772.27,-432.25 547.27,-432.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-438.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> total_surtax_amount </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-432.25 772.27,-450.25 779.27,-450.25 779.27,-432.25 772.27,-432.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-438.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-414.25 540.27,-432.25 547.27,-432.25 547.27,-414.25 540.27,-414.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-420.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-414.25 547.27,-432.25 772.27,-432.25 772.27,-414.25 547.27,-414.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-419.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> surtax_applicable </text>
+<text xml:space="preserve" text-anchor="start" x="639.52" y="-419.8" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="642.52" y="-419.8" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= 1 if (ship_date is not None...</text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-414.25 772.27,-432.25 779.27,-432.25 779.27,-414.25 772.27,-414.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-420.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-396.25 540.27,-414.25 547.27,-414.25 547.27,-396.25 540.27,-396.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-402.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-396.25 547.27,-414.25 772.27,-414.25 772.27,-396.25 547.27,-396.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-402.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> ship_date </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-396.25 772.27,-414.25 779.27,-414.25 779.27,-396.25 772.27,-396.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-402.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-378.25 540.27,-396.25 547.27,-396.25 547.27,-378.25 540.27,-378.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-384.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-378.25 547.27,-396.25 772.27,-396.25 772.27,-378.25 547.27,-378.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-384.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> effective_date </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-378.25 772.27,-396.25 779.27,-396.25 779.27,-378.25 772.27,-378.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-384.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-360.25 540.27,-378.25 547.27,-378.25 547.27,-360.25 540.27,-360.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-366.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-360.25 547.27,-378.25 772.27,-378.25 772.27,-360.25 547.27,-360.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-366.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> country_surtax_rate </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-360.25 772.27,-378.25 779.27,-378.25 779.27,-360.25 772.27,-360.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-366.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-342.25 540.27,-360.25 547.27,-360.25 547.27,-342.25 540.27,-342.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-348.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-342.25 547.27,-360.25 772.27,-360.25 772.27,-342.25 547.27,-342.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-347.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> duty_paid_value </text>
+<text xml:space="preserve" text-anchor="start" x="634.27" y="-347.8" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="637.27" y="-347.8" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= (total_customs_value or 0)...</text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-342.25 772.27,-360.25 779.27,-360.25 779.27,-342.25 772.27,-342.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-348.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-324.25 540.27,-342.25 547.27,-342.25 547.27,-324.25 540.27,-324.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-330.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-324.25 547.27,-342.25 772.27,-342.25 772.27,-324.25 547.27,-324.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-329.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> sales_tax_amount </text>
+<text xml:space="preserve" text-anchor="start" x="643.27" y="-329.8" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="646.27" y="-329.8" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= (duty_paid_value or 0) * (p...</text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-324.25 772.27,-342.25 779.27,-342.25 779.27,-324.25 772.27,-324.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-330.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-306.25 540.27,-324.25 547.27,-324.25 547.27,-306.25 540.27,-306.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-312.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-306.25 547.27,-324.25 772.27,-324.25 772.27,-306.25 547.27,-306.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-312.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> province_tax_rate </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-306.25 772.27,-324.25 779.27,-324.25 779.27,-306.25 772.27,-306.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-312.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-288.25 540.27,-306.25 547.27,-306.25 547.27,-288.25 540.27,-288.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-294.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-288.25 547.27,-306.25 772.27,-306.25 772.27,-288.25 547.27,-288.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-293.8" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> total_tax_due </text>
+<text xml:space="preserve" text-anchor="start" x="620.77" y="-293.8" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text xml:space="preserve" text-anchor="start" x="623.77" y="-293.8" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#e67e22">= (total_duty_amount or 0)  ...</text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-288.25 772.27,-306.25 779.27,-306.25 779.27,-288.25 772.27,-288.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-294.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-270.25 540.27,-288.25 547.27,-288.25 547.27,-270.25 540.27,-270.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-276.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-270.25 547.27,-288.25 772.27,-288.25 772.27,-270.25 547.27,-270.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-276.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> program_code </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-270.25 772.27,-288.25 779.27,-288.25 779.27,-270.25 772.27,-270.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-276.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="540.27,-252.25 540.27,-270.25 547.27,-270.25 547.27,-252.25 540.27,-252.25" />
+<text xml:space="preserve" text-anchor="start" x="542.27" y="-258.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="547.27,-252.25 547.27,-270.25 772.27,-270.25 772.27,-252.25 547.27,-252.25" />
+<text xml:space="preserve" text-anchor="start" x="550.27" y="-258.25" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> pc_number </text>
+<polygon fill="#b8cce8" stroke="none" points="772.27,-252.25 772.27,-270.25 779.27,-270.25 779.27,-252.25 772.27,-252.25" />
+<text xml:space="preserve" text-anchor="start" x="774.27" y="-258.25" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="#4a6fa5" points="539.27,-251.25 539.27,-503.25 780.27,-503.25 780.27,-251.25 539.27,-251.25" />
+</g>
+
+<g id="edge10" class="edge">
+<title>CountryOrigin:CountryOrigin_surtax_rate_w-&gt;CustomsEntry:CustomsEntry_country_surtax_rate_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M337.6,-620.5C337.6,-618.52 493.72,-423.36 531.25,-378.41" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="537.83,-370.9 534.62,-381.39 536.28,-373.28 531.54,-378.69 531.24,-378.42 530.94,-378.16 535.68,-372.75 527.85,-375.46 537.83,-370.9" />
+<text xml:space="preserve" text-anchor="middle" x="393.8" y="-549" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">4</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>CustomsEntry-&gt;CountryOrigin</title>
+<path fill="none" stroke="#e0e0e0" stroke-width="0.7" d="M523.97,-502.21C475.63,-546.34 426.33,-591.35 398.53,-616.72" />
+<polygon fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0.7" points="523.85,-502.33 534.27,-498.91 527.71,-498.8 531.06,-495.74 531.06,-495.74 531.06,-495.74 527.71,-498.8 528.2,-492.26 523.85,-502.33" />
+</g>
+
+<g id="node5" class="node">
+<title>Province</title>
+<polygon fill="#4a6fa5" stroke="none" points="501.27,-639.5 501.27,-655.5 566.27,-655.5 566.27,-639.5 501.27,-639.5" />
+<text xml:space="preserve" text-anchor="start" x="507.52" y="-644.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white"> Province </text>
+<polygon fill="#b8cce8" stroke="none" points="501.27,-621.5 501.27,-639.5 508.27,-639.5 508.27,-621.5 501.27,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="503.27" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="508.27,-621.5 508.27,-639.5 559.27,-639.5 559.27,-621.5 508.27,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="511.27" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> tax_rate </text>
+<polygon fill="#b8cce8" stroke="none" points="559.27,-621.5 559.27,-639.5 566.27,-639.5 566.27,-621.5 559.27,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="561.27" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="#4a6fa5" points="500.27,-620.5 500.27,-656.5 567.27,-656.5 567.27,-620.5 500.27,-620.5" />
+</g>
+
+<g id="edge2" class="edge">
+<title>CustomsEntry-&gt;Province</title>
+<path fill="none" stroke="#e0e0e0" stroke-width="0.7" d="M592.82,-515.99C573.63,-555.5 554.92,-593.99 543.87,-616.72" />
+<polygon fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0.7" points="592.71,-516.22 601.13,-509.2 595,-511.52 596.98,-507.44 596.98,-507.44 596.98,-507.44 595,-511.52 593.04,-505.26 592.71,-516.22" />
+</g>
+
+<g id="node7" class="node">
+<title>SysConfig</title>
+<polygon fill="#4a6fa5" stroke="none" points="714.9,-657.5 714.9,-673.5 810.65,-673.5 810.65,-657.5 714.9,-657.5" />
+<text xml:space="preserve" text-anchor="start" x="732.4" y="-662.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white"> SysConfig </text>
+<polygon fill="#b8cce8" stroke="none" points="714.9,-639.5 714.9,-657.5 721.9,-657.5 721.9,-639.5 714.9,-639.5" />
+<text xml:space="preserve" text-anchor="start" x="716.9" y="-645.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="721.9,-639.5 721.9,-657.5 803.65,-657.5 803.65,-639.5 721.9,-639.5" />
+<text xml:space="preserve" text-anchor="start" x="724.9" y="-645.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> effective_date </text>
+<polygon fill="#b8cce8" stroke="none" points="803.65,-639.5 803.65,-657.5 810.65,-657.5 810.65,-639.5 803.65,-639.5" />
+<text xml:space="preserve" text-anchor="start" x="805.65" y="-645.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="714.9,-621.5 714.9,-639.5 721.9,-639.5 721.9,-621.5 714.9,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="716.9" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="721.9,-621.5 721.9,-639.5 803.65,-639.5 803.65,-621.5 721.9,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="724.9" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> program_code </text>
+<polygon fill="#b8cce8" stroke="none" points="803.65,-621.5 803.65,-639.5 810.65,-639.5 810.65,-621.5 803.65,-621.5" />
+<text xml:space="preserve" text-anchor="start" x="805.65" y="-627.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="714.9,-603.5 714.9,-621.5 721.9,-621.5 721.9,-603.5 714.9,-603.5" />
+<text xml:space="preserve" text-anchor="start" x="716.9" y="-609.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="721.9,-603.5 721.9,-621.5 803.65,-621.5 803.65,-603.5 721.9,-603.5" />
+<text xml:space="preserve" text-anchor="start" x="724.9" y="-609.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> pc_number </text>
+<polygon fill="#b8cce8" stroke="none" points="803.65,-603.5 803.65,-621.5 810.65,-621.5 810.65,-603.5 803.65,-603.5" />
+<text xml:space="preserve" text-anchor="start" x="805.65" y="-609.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="#4a6fa5" points="713.9,-602.5 713.9,-674.5 811.65,-674.5 811.65,-602.5 713.9,-602.5" />
+</g>
+
+<g id="edge3" class="edge">
+<title>CustomsEntry-&gt;SysConfig</title>
+<path fill="none" stroke="#e0e0e0" stroke-width="0.7" d="M785.52,-515.92C791.08,-526.1 795.92,-536.58 799.77,-547.25 805.91,-564.3 800.46,-582.86 792.03,-598.69" />
+<polygon fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0.7" points="785.53,-515.94 784.48,-505.02 782.93,-511.39 780.69,-507.46 780.69,-507.46 780.69,-507.46 782.93,-511.39 776.66,-509.48 785.53,-515.94" />
+</g>
+
+<g id="node4" class="node">
+<title>HsCodeRate</title>
+<polygon fill="#4a6fa5" stroke="none" points="91.9,-648.5 91.9,-664.5 205.65,-664.5 205.65,-648.5 91.9,-648.5" />
+<text xml:space="preserve" text-anchor="start" x="112.77" y="-653.05" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00" fill="white"> HsCodeRate </text>
+<polygon fill="#b8cce8" stroke="none" points="91.9,-630.5 91.9,-648.5 98.9,-648.5 98.9,-630.5 91.9,-630.5" />
+<text xml:space="preserve" text-anchor="start" x="93.9" y="-636.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="98.9,-630.5 98.9,-648.5 198.65,-648.5 198.65,-630.5 98.9,-630.5" />
+<text xml:space="preserve" text-anchor="start" x="101.9" y="-636.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> base_duty_rate </text>
+<polygon fill="#b8cce8" stroke="none" points="198.65,-630.5 198.65,-648.5 205.65,-648.5 205.65,-630.5 198.65,-630.5" />
+<text xml:space="preserve" text-anchor="start" x="200.65" y="-636.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#b8cce8" stroke="none" points="91.9,-612.5 91.9,-630.5 98.9,-630.5 98.9,-612.5 91.9,-612.5" />
+<text xml:space="preserve" text-anchor="start" x="93.9" y="-618.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#dbe4f0" stroke="none" points="98.9,-612.5 98.9,-630.5 198.65,-630.5 198.65,-612.5 98.9,-612.5" />
+<text xml:space="preserve" text-anchor="start" x="101.9" y="-618.5" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#1a1a2e"> is_steel_derivative </text>
+<polygon fill="#b8cce8" stroke="none" points="198.65,-612.5 198.65,-630.5 205.65,-630.5 205.65,-612.5 198.65,-612.5" />
+<text xml:space="preserve" text-anchor="start" x="200.65" y="-618.5" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="none" stroke="#4a6fa5" points="90.9,-611.5 90.9,-665.5 206.65,-665.5 206.65,-611.5 90.9,-611.5" />
+</g>
+
+<g id="edge12" class="edge">
+<title>HsCodeRate:HsCodeRate_base_duty_rate_w-&gt;SurtaxLineItem:SurtaxLineItem_base_duty_rate_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M90.9,-639.5C-83.44,-639.5 37.5,-413 91.52,-247.25 100.25,-220.48 105.22,-211.43 128.77,-196 197.69,-150.86 240.24,-200.19 309.77,-156 372.41,-116.19 342.74,-26.54 405.64,-16.85" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="415.33,-16.16 405.68,-21.36 412.56,-16.76 405.39,-17.27 405.36,-16.87 405.33,-16.47 412.5,-15.96 405.04,-12.38 415.33,-16.16" />
+<text xml:space="preserve" text-anchor="middle" x="94.15" y="-373.38" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">6</text>
+</g>
+
+<g id="edge13" class="edge">
+<title>HsCodeRate:HsCodeRate_is_steel_derivative_w-&gt;SurtaxLineItem:SurtaxLineItem_is_steel_derivative_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M95.4,-611.5C95.4,-526.34 169.18,-319.34 214.52,-247.25 245.73,-197.63 269.16,-198.28 309.77,-156 356.94,-106.88 346.68,-42.12 405.67,-34.7" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="415.33,-34.13 405.61,-39.21 412.55,-34.69 405.37,-35.12 405.35,-34.72 405.32,-34.32 412.51,-33.9 405.08,-30.23 415.33,-34.13" />
+<text xml:space="preserve" text-anchor="middle" x="217.15" y="-373.38" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">7</text>
+</g>
+
+<g id="edge11" class="edge">
+<title>Province:Province_tax_rate_w-&gt;CustomsEntry:CustomsEntry_province_tax_rate_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M504.77,-620.5C504.77,-488.24 409.02,-325.76 527.16,-315.74" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="537.08,-315.34 527.27,-320.24 534.29,-315.85 527.1,-316.14 527.09,-315.74 527.07,-315.34 534.26,-315.05 526.91,-311.24 537.08,-315.34" />
+<text xml:space="preserve" text-anchor="middle" x="500.95" y="-549" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">5</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>SurtaxLineItem-&gt;CustomsEntry</title>
+<path fill="none" stroke="#e0e0e0" stroke-width="0.7" d="M399.08,-125.34C361.64,-145.77 336.67,-173.02 356.77,-207.25 358.11,-209.53 449.57,-260.39 531.65,-305.72" />
+<polygon fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0.7" points="398.69,-125.54 409.64,-124.92 403.34,-123.12 407.36,-121.04 407.36,-121.04 407.36,-121.04 403.34,-123.12 405.49,-116.93 398.69,-125.54" />
+</g>
+
+<g id="edge14" class="edge">
+<title>SurtaxLineItem:SurtaxLineItem_customs_value_w-&gt;CustomsEntry:CustomsEntry_total_customs_value_w</title>
+<path fill="none" stroke="#444444" stroke-width="2" stroke-dasharray="5,2" d="M417.52,-124C380.46,-124 413.43,-171.26 422.27,-207.25 452.48,-330.16 411.31,-468.05 527.17,-476.81" />
+<polygon fill="#444444" stroke="#444444" stroke-width="2" points="536.84,-477.16 526.68,-481.29 534.26,-477.57 526.82,-477.3 526.84,-476.8 526.86,-476.3 534.29,-476.57 527.01,-472.3 536.84,-477.16" />
+<text xml:space="preserve" text-anchor="middle" x="427.52" y="-197.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">15</text>
+</g>
+
+<g id="edge15" class="edge">
+<title>SurtaxLineItem:SurtaxLineItem_base_duty_amount_w-&gt;CustomsEntry:CustomsEntry_total_duty_amount_w</title>
+<path fill="none" stroke="#444444" stroke-width="2" stroke-dasharray="5,2" d="M417.52,-106C376.79,-106 419.59,-158.21 434.77,-196 480.08,-308.82 417.92,-449.27 527.03,-458.74" />
+<polygon fill="#444444" stroke="#444444" stroke-width="2" points="536.84,-459.15 526.66,-463.23 534.25,-459.54 526.82,-459.24 526.84,-458.74 526.86,-458.24 534.3,-458.54 527.03,-454.24 536.84,-459.15" />
+<text xml:space="preserve" text-anchor="middle" x="442.7" y="-197.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">16</text>
+</g>
+
+<g id="edge16" class="edge">
+<title>SurtaxLineItem:SurtaxLineItem_surtax_amount_w-&gt;CustomsEntry:CustomsEntry_total_surtax_amount_w</title>
+<path fill="none" stroke="#444444" stroke-width="2" stroke-dasharray="5,2" d="M417.52,-88C387.29,-88 405.9,-128.54 418.52,-156 429.73,-180.39 449.22,-173.44 463.77,-196 523.17,-288.1 432.82,-429.66 526.86,-440.58" />
+<polygon fill="#444444" stroke="#444444" stroke-width="2" points="536.84,-441.12 526.61,-445.07 534.25,-441.48 526.82,-441.08 526.85,-440.58 526.88,-440.08 534.3,-440.48 527.1,-436.08 536.84,-441.12" />
+<text xml:space="preserve" text-anchor="middle" x="472.54" y="-197.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">17</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>SurtaxLineItem-&gt;HsCodeRate</title>
+<path fill="none" stroke="#e0e0e0" stroke-width="0.7" d="M399.01,-141.75C375.56,-156.88 353.24,-174.92 335.77,-196 227.13,-327.12 293.61,-409.18 211.77,-558.5 202.16,-576.04 188.61,-593.62 176.55,-607.73" />
+<polygon fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0.7" points="399.03,-141.73 409.89,-140.24 403.47,-138.95 407.31,-136.55 407.31,-136.55 407.31,-136.55 403.47,-138.95 405.11,-132.61 399.03,-141.73" />
+</g>
+
+<g id="edge7" class="edge">
+<title>SysConfig:SysConfig_effective_date_w-&gt;CustomsEntry:CustomsEntry_effective_date_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M713.9,-648.5C689.03,-648.5 551.05,-529.66 540.27,-507.25 519.15,-463.31 491.24,-399.44 527.33,-388.78" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="537.1,-387.53 527.75,-393.27 534.36,-388.28 527.23,-389.2 527.18,-388.8 527.13,-388.41 534.26,-387.49 526.6,-384.34 537.1,-387.53" />
+<text xml:space="preserve" text-anchor="middle" x="588.56" y="-549" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">1</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>SysConfig:SysConfig_program_code_w-&gt;CustomsEntry:CustomsEntry_program_code_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M713.9,-630.5C653.6,-630.5 656.5,-581.35 606.77,-547.25 578.33,-527.74 557.31,-537.24 540.27,-507.25 492.3,-422.85 442.32,-290.91 527.31,-279.98" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="537.08,-279.38 527.37,-284.48 534.3,-279.95 527.12,-280.39 527.1,-279.99 527.08,-279.59 534.26,-279.15 526.83,-275.5 537.08,-279.38" />
+<text xml:space="preserve" text-anchor="middle" x="622.85" y="-549" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">2</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>SysConfig:SysConfig_pc_number_w-&gt;CustomsEntry:CustomsEntry_pc_number_w</title>
+<path fill="none" stroke="#444444" stroke-width="1.8" d="M718.4,-602.5C718.4,-560.51 678.61,-567.38 641.77,-547.25 599.22,-524 567.64,-547.28 540.27,-507.25 480.97,-420.52 433.75,-273.32 527.17,-261.95" />
+<polygon fill="#444444" stroke="#444444" stroke-width="1.8" points="537.08,-261.38 527.36,-266.45 534.3,-261.94 527.12,-262.35 527.1,-261.95 527.07,-261.55 534.26,-261.14 526.84,-257.46 537.08,-261.38" />
+<text xml:space="preserve" text-anchor="middle" x="670.84" y="-549" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#444444">3</text>
+</g>
+<path d="M780.27,-366.25 C802.27,-366.25 802.27,-419.8 780.27,-419.8" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="780.27,-419.8 784.27,-423.8 784.27,-415.8" stroke="#445544" fill="#445544" /><text x="805.3" y="-389.0" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">8</text><path d="M780.27,-474.25 C826.27,-474.25 826.27,-347.8 780.27,-347.8" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="780.27,-347.8 784.27,-351.8 784.27,-343.8" stroke="#445544" fill="#445544" /><text x="829.3" y="-407.0" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">9</text><path d="M780.27,-347.8 C850.27,-347.8 850.27,-329.8 780.27,-329.8" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="780.27,-329.8 784.27,-333.8 784.27,-325.8" stroke="#445544" fill="#445544" /><text x="853.3" y="-334.8" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">10</text><path d="M780.27,-312.25 C874.27,-312.25 874.27,-329.8 780.27,-329.8" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="780.27,-329.8 784.27,-333.8 784.27,-325.8" stroke="#445544" fill="#445544" /><text x="877.3" y="-317.0" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">10</text><path d="M780.27,-456.25 C898.27,-456.25 898.27,-293.8 780.27,-293.8" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="780.27,-293.8 784.27,-297.8 784.27,-289.8" stroke="#445544" fill="#445544" /><text x="901.3" y="-371.0" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">11</text><path d="M666.52,-31.0 C688.52,-31.0 688.52,-66.55 666.52,-66.55" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="666.52,-66.55 670.52,-70.55 670.52,-62.55" stroke="#445544" fill="#445544" /><text x="691.5" y="-44.8" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">12</text><path d="M666.52,-13.0 C712.52,-13.0 712.52,-102.55 666.52,-102.55" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="666.52,-102.55 670.52,-106.55 670.52,-98.55" stroke="#445544" fill="#445544" /><text x="715.5" y="-53.8" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">13</text><path d="M666.52,-66.55 C736.52,-66.55 736.52,-84.55 666.52,-84.55" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="666.52,-84.55 670.52,-88.55 670.52,-80.55" stroke="#445544" fill="#445544" /><text x="739.5" y="-71.5" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">14</text><path d="M666.52,-49.0 C760.52,-49.0 760.52,-84.55 666.52,-84.55" stroke="#445544" stroke-width="1.2" fill="none" /><polygon points="666.52,-84.55 670.52,-88.55 670.52,-80.55" stroke="#445544" fill="#445544" /><text x="763.5" y="-62.8" font-family="Helvetica,sans-Serif" font-size="10" fill="#445544">14</text></g>
+</svg>

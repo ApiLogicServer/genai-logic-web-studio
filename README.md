@@ -146,8 +146,8 @@ On Placing Orders, Check Credit
 
 Two quick points:
 
-1. **This *runs*** - we'll see it next (step 2).  In particular, the logic (the `Check Credit` block) is executable - not just documentation.
-2. **This is *readable*** - without GenAI-Logic guidance, an AI assistant would default to procedural code like this ([click here](samples/basic_demo_sample/logic/procedural/credit_service.py))— ~200 lines of code that are too hard to read - for you, or developers, especially when the systems becomes large.
+1. **This runs** — we'll see it next (step 2). The logic (the `Check Credit` block) is **executable**, not just documentation.
+2. **This is readable** — without GenAI-Logic guidance, an AI assistant would default to procedural code like [this](samples/basic_demo_sample/logic/procedural/credit_service.py) — ~200 lines, too hard to read for you or developers, especially as the system grows.
 
 That's what you just declared. Next: run it, and see it enforced.
 
@@ -190,16 +190,20 @@ Change the quantity to a very large number. Save.
 
 <br>
 
-The save fails — note the dialog. Why? Let's look.
+The **save fails** — note the dialog. Why? Let's look.
 
 </details>
 
 &nbsp;
 
 <details markdown>
-<summary>&emsp;&emsp;3. Fix it — tell your AI assistant what looked wrong, in plain language</summary>
+<summary>&emsp;&emsp;3. Talk to your AI — fix it, design it, understand it</summary>
 
-<br>Something didn't work as expected? Just tell your AI assistant: *"The credit check didn't fire"* or *"The order total looks wrong."* It reads the same rule trace and log the system produces, finds the cause, and fixes it — you don't read logs or code.
+<br>**Same AI, same context** — just ask, in plain language:
+
+- **Fix** — *"The credit check didn't fire"* or *"The order total looks wrong."* It reads the same rule trace and log the system produces, finds the cause, and fixes it — you don't read logs or code.
+- **Design** — *"How would I model a discount rule?"* or *"What's the tradeoff here?"*
+- **Understand** — *"Tell me more about rules"* or *"How does this work?"*
 
 <details markdown>
 <summary>&emsp;&emsp;&emsp;&emsp;Your dev buddies will love this — standard logging, standard debugging, in their IDE</summary>
@@ -217,15 +221,15 @@ The save fails — note the dialog. Why? Let's look.
 <details markdown>
 <summary>&emsp;&emsp;4. Iterate — no system is right the first time, and that's fully supported here</summary>
 
-<br>Requirements get refined as you see the system take shape — that's expected, not a fallback. Ask your AI assistant for a new rule, in plain English:
+<br>**Requirements get refined** as you see the system take shape — that's expected, not a fallback. Ask your AI assistant for a new rule, in plain English:
 
 ```
 Customers should not be able to create new orders if they have unresolved past due letters.
 ```
 
-There was no `Letter` table in the model — the AI adds it, relates it to `Customer`, and declares a `count` + a `constraint`. One sentence creates a schema change and two new rules — automatically integrated with the 5 already there. No need to open `check_credit.py` to find where this belongs, or trace the other rules to check for conflicts: **maintainable**, demonstrated, not asserted.
+There was no `Letter` table in the model — the AI **adds it**, relates it to `Customer`, and declares a `count` + a `constraint`. One sentence creates a schema change and two new rules — automatically integrated with the 5 already there. No need to open `check_credit.py` to find where this belongs, or trace the other rules to check for conflicts: **maintainable**, demonstrated, not asserted.
 
-Without the engine, an AI rewriting procedural code from scratch would have to re-read and re-touch every existing rule to check for dependencies — more surface area for a missed path, more tokens spent doing it. At 5 rules that's a nuisance; **at 500, the re-read is the bottleneck and the missed-path risk compounds.** Here, the engine resolves dependencies at load time, so adding this rule doesn't touch the rest — no regeneration, no regression risk, at any scale.
+**Without the engine, this is where AI risk creeps in.** Rewriting procedural code means the AI has to re-check every existing rule by hand — the same kind of missed-case risk everyone's heard about with AI, and **it gets worse as the system grows.** The engine removes that risk: it resolves dependencies automatically, so adding a rule doesn't touch the rest — at any scale, for AI and humans alike.
 
 </details>
 
@@ -234,19 +238,43 @@ Without the engine, an AI rewriting procedural code from scratch would have to r
 <details markdown>
 <summary>&emsp;&emsp;5. Why rules are easy to Read, Trust, and Maintain</summary>
 
-<br>Three properties, declared once — procedural code has to earn each of these by hand, on every change:
+<br>
 
-| Property | What it means | Why it matters |
-|---|---|---|
-| **Readable** | 5 lines, one per requirement — see them in [`logic/logic_discovery/place_order/check_credit.py`](samples/basic_demo_sample/logic/logic_discovery/place_order/check_credit.py), e.g. `Customer.balance = sum of unpaid orders` — the same requirements run ~200 lines written procedurally | No archaeology needed to see what it does |
-| **Trustworthy** | Rules fire at every commit, from every caller — you never call them | Can't be forgotten, can't be bypassed |
-| **Maintainable** | Dependency order is computed once, automatically | Add a rule anywhere, it finds its place |
+<details markdown>
+<summary>&emsp;&emsp;&emsp;&emsp;Readable — ~40X less to read</summary>
 
-> Think of a **spreadsheet:** `B10 = SUM(B1:B9)` isn't called, it *reacts* — change any input cell, it recalculates. Rules react the same way to changes in what they depend on.
+<br>5 rules, not ~200 — compare the [declarative rules](samples/basic_demo_sample/logic/logic_discovery/place_order/check_credit.py) to the [procedural code](samples/basic_demo_sample/logic/procedural/credit_service.py) they replace.
 
-> **Ask your AI assistant, not just to build.** It knows this material too — try *"Tell me more about rules"* or *"How does this work?"* Same AI, same context, now explaining instead of generating.
+</details>
 
-Don't take any of this on faith — an AI was asked to rebuild this same logic without the rule engine, procedurally. It shipped real bugs. See them: [declarative vs. procedural comparison](samples/basic_demo_sample/logic/procedural/declarative-vs-procedural-comparison.md) — ~200 lines, compared line-for-line with the 5 rules above.
+&nbsp;
+
+<details markdown>
+<summary>&emsp;&emsp;&emsp;&emsp;Trustworthy — if you see the rule, you know it runs</summary>
+
+<br>It doesn't matter how the transaction arrives — API, AI agent, Admin App, or message queue — or what kind of change it is — adding an order, editing one, moving it to a different customer. Same rules, same enforcement, every time. No client-specific logic to duplicate, no path that slips through ungoverned.
+
+Don't take that on faith — an AI was asked to rebuild this same logic without the rule engine, procedurally. **It shipped real bugs**: hundreds of lines, hard to follow, with subtle issues you'd have to go find yourself. See it: [declarative vs. procedural comparison](samples/basic_demo_sample/logic/procedural/declarative-vs-procedural-comparison.md) — compared line-for-line with the 5 rules above.
+
+</details>
+
+&nbsp;
+
+<details markdown>
+<summary>&emsp;&emsp;&emsp;&emsp;Maintainable — add a rule anywhere, it finds its place</summary>
+
+<br>Traditional maintenance is mostly untangling code to find where to insert new logic. Here, **you just add the rule** — the engine sorts out the rest.
+
+</details>
+
+&nbsp;
+
+<details markdown>
+<summary>&emsp;&emsp;&emsp;&emsp;Think of a spreadsheet</summary>
+
+<br>`B10 = SUM(B1:B9)` isn't called, it *reacts* — change any input cell, it recalculates. Rules react the same way to changes in what they depend on.
+
+</details>
 
 </details>
 
@@ -257,7 +285,7 @@ Don't take any of this on faith — an AI was asked to rebuild this same logic w
 <details markdown>
 <summary>Example — New Database</summary>
 
-<br>No existing database? Same idea, same governing logic — just describe the tables instead of pointing at a `.sqlite` file (allow 8-10 mins):
+<br>**No existing database?** Same idea, same governing logic — just describe the tables instead of pointing at a `.sqlite` file (allow 8-10 mins):
 
 ```
 Create basic_demo_new (no existing database) with:
@@ -274,53 +302,41 @@ On Placing Orders, Check Credit
     5. The Item unit_price is copied from the Product unit_price
 ```
 
-Either path gets you the same thing: a working API and Admin App **plus the governing logic above** — not just a static schema. Same "Run it / Debug it / Iterate" walkthrough from the Existing Database example above applies here too, once it's running.
+Either path gets you the same thing: a working API and Admin App **plus the governing logic above** — not just a static schema. Same "Run it / Talk to your AI / Iterate" walkthrough from the Existing Database example above applies here too, once it's running.
 
 </details>
 
 &nbsp;
 
 <details markdown>
-<summary>Scaling to the Enterprise — here's how</summary>
+<summary>Scaling to the Enterprise — here's what else is covered</summary>
 
-<br>With logic off its plate, AI can create remarkable results — solid enterprise systems, from requirements, not just demos that become tech debt.
+<br>You've seen the core loop working. The rest of enterprise architecture is covered too — not waving hands, here's the actual code, already in this workspace:
 
-**We add key *enterprise architecture* integration:**
+- **Integration (EAI)** — the demo above published an Order to Kafka. Consuming messages from partners works the same way: [`integration/kafka/kafka_consumer.py`](samples/basic_demo_sample/integration/kafka/kafka_consumer.py), [`kafka_producer.py`](samples/basic_demo_sample/integration/kafka/kafka_producer.py), [readme](samples/basic_demo_sample/integration/kafka/kafka_readme.md).
 
-- **Enterprise Integration (EAI)** — the demo above showed ***Publish** the Order to Kafka topic*. For the **subscribe** side, see [samples/basic_demo_eai/readme.md](samples/basic_demo_eai/readme.md): B2B orders from partner systems, via a Custom API or Kafka subscriber, including *lookups* so partners send `"Account": "Alice"` (not internal IDs).
+- **MCP (AI agents)** — your API is MCP-discoverable out of the box, so Copilot, Claude, or ChatGPT can query it directly, no discovery layer to write: [`mcp_discovery.py`](samples/basic_demo_sample/api/api_discovery/mcp_discovery.py), [readme](samples/basic_demo_sample/readme_ai_mcp.md).
 
-- **MCP** — your API is **MCP-discoverable** out of the box (`/.well-known/mcp.json`).
-Copilot, Claude, or ChatGPT can find the schema and answer natural-language queries against it.  There's no discovery layer for you to write — see [samples/basic_demo_ai_rules-supplier/readme_ai_mcp.md](samples/basic_demo_ai_rules-supplier/readme_ai_mcp.md)
-
-- **AI Rules** — rules that call AI for genuinely judgment-call decisions (e.g. picking a supplier under disrupted shipping lanes).  Such AI "proposals" are governed by the deterministic rules to ensure results conform to business policy — see [samples/basic_demo_ai_rules-supplier/readme.md](samples/basic_demo_ai_rules-supplier/readme.md)
+- **Governance you can prove, not just assert** — reports generated from the running system, not hand-written: [logic diagram generator](samples/basic_demo_sample/docs/logic_diagram.md), [health check](samples/basic_demo_sample/docs/training/health_check.md). A compliance reviewer can check the implementation in minutes, not by reading code.
 
 - **Custom UIs, safely** — Vibe tools (Cursor, v0, etc.) generate the UI; it's built against the same governed API, so the logic runs the same regardless of what's calling it — `genai-logic genai-add-app --vibe`.
 
-- **Governance you can prove, not just assert** — three reports, generated from the running system, not hand-written:
-    - **[Logic flow diagram](samples/basic_demo_logic_gov/docs/requirements/logic_flow_basic_demo_logic_gov.md)** — NL requirement, dependency diagram, and rule summary, for every rule chain
-    - **[Ad-libs report](samples/basic_demo_logic_gov/docs/requirements/ad-libs.md)** — every assumption the AI made beyond the spec, so you know exactly what to verify
-    - **[Health check](samples/basic_demo_logic_gov/docs/requirements/health_check.md)** — rule adoption, dependency-tracking integrity, missing docstrings, across the whole project
-
-    A compliance reviewer can check the implementation in minutes, not by reading code.
-
-    <img src="samples/basic_demo_logic_gov/docs/requirements/logic_diagrams/logic_diagram.svg" alt="Logic diagram: Item/Order/Customer rule chain, generated from the running rules" width="480">
-
-
-That combination — AI, logic automation, and that enterprise architecture — is what enables ***Executable Requirements***: AI building real enterprise-class systems, from formats you already are familiar with, not a new syntax to learn:
-
-- **Gherkin-style scenarios** — [business description](samples/demo_customs_clvs/readme.md), and the [actual requirements](samples/demo_customs_clvs/docs/requirements/customs_demo/requirements.md) used by AI to create the system.
-
-- The **short prompt that built a system straight from an actual government tariff regulation** (Canada, CBSA) — [the prompt](samples/demo_customs_surtax/readme.md), and [the rules it produced](samples/demo_customs_surtax/logic/logic_discovery/cbsa_steel_surtax.py)
-
-    > So, simply by referencing the regs, you get a complete enterprise system — including governed logic you can audit, trust, and maintain. AI implements the spec end-to-end and reports an **ad-libs list** — every decision it made beyond what the spec said — so you know exactly where it guessed.
-
 &nbsp;
 
-<img src="https://github.com/ApiLogicServer/Docs/blob/main/docs/images/architecture/logic-architecture-exec.png?raw=true" alt="Design and Runtime funnels into one governed Rules Engine" height="380" width="380" align="right">
+**The mic-drop: Executable Requirements.** AI builds real enterprise systems straight from the same formats already sitting in this workspace — no new syntax, nothing hidden, nothing hand-tuned after the fact:
 
-The architecture that makes this work: two funnels, converging on one engine. All requirement formats, and all transaction sources, passing through **the same commit point. No bypass.**
+- **A government regulation, referenced by citation number** — [the entire prompt](samples/prompts/customs_cbsa.prompt.md) that builds a Canada Customs (CBSA) steel-tariff duty calculator is 9 lines.
+- **A Gherkin-style requirements spec** — [the actual `requirements.md`](samples/requirements/customs_demo_clvs/docs/requirements/customs_demo/requirements.md) a PM would write and hand off, no interpretation needed — see [how the workflow works](samples/requirements/readme_reqmts.md).
 
-**What AI delivers, once logic is off its plate: entire, *governed* systems from requirements** — not just code that becomes instant tech debt. It is this approach that **caught an 8-figure compliance exposure** a major logistics company's hand-coded system missed for months. [Full writeup →](https://apilogicserver.github.io/Docs/Tech-Ent-AI)
+<details markdown>
+<summary>&emsp;&emsp;Go deeper — the actual built systems, not just the prompts</summary>
+
+<br>No need to run these — both are already built and sitting in `samples/`, if you ever want to poke around:
+
+- **CBSA steel-tariff system** — [the rules it produced](samples/demo_customs_surtax/logic/logic_discovery/cbsa_steel_surtax.py), [the ad-libs report](samples/demo_customs_surtax/docs/requirements/ad-libs.md) (every decision the AI made beyond the spec).
+- **CLVS eligibility system** — [eligibility rules](samples/demo_customs_clvs/logic/logic_discovery/clvs_eligibility.py), [shipment matching](samples/demo_customs_clvs/logic/logic_discovery/shipment_matching.py), [the ad-libs report](samples/demo_customs_clvs/docs/requirements/customs_demo/ad-libs.md).
+
+</details>
 
 </details>
 
@@ -331,7 +347,7 @@ The architecture that makes this work: two funnels, converging on one engine. Al
 
 &nbsp;
 
-You don't need any of this on day one — the admin app and the rules you just saw are enough to get going. Once the basics feel natural, here's more: a hands-on tour, and proof the same governed logic runs identically no matter how a transaction arrives — Admin App, API, or message queue. No separate logic to maintain per channel, and no gap for compliance to worry about.
+**You don't need any of this on day one** — the admin app and the rules you just saw are enough to get going. Once the basics feel natural, here's more: a hands-on tour, and proof the same governed logic runs identically no matter how a transaction arrives — Admin App, API, or message queue. No separate logic to maintain per channel, and no gap for compliance to worry about.
 
 &nbsp;
 
@@ -358,7 +374,7 @@ genai-logic create --project_name=basic_demo --db_url=sqlite:///samples/dbs/basi
 
 &nbsp;
 
-Every project already has a full REST API (JSON:API — filtering, sorting, pagination, related-data access), generated automatically — that's what you saw in Swagger. Beyond that, describe a **custom API** for a specific partner's format in plain English, and your AI assistant builds it:
+Every project already has a **full REST API** (JSON:API — filtering, sorting, pagination, related-data access), generated automatically — that's what you saw in Swagger. Beyond that, describe a **custom API** for a specific partner's format in plain English, and your AI assistant builds it:
 
 ```
 Accept orders from partner Acme in this format: {"Account": "...", "Items": [{"Name": "...", "QuantityOrdered": ...}]}.
@@ -377,7 +393,7 @@ A partner-format order and an Admin-App order run through the identical commit p
 
 &nbsp;
 
-APIs assume the other system is up right now. Message brokers like Kafka don't: you **publish** a message to a **topic**, the broker guarantees delivery even if the receiver is offline, and other systems **subscribe** to that topic — usually called "pub/sub." Describe it the same way you'd describe anything else:
+**APIs assume the other system is up right now.** Message brokers like Kafka don't: you **publish** a message to a **topic**, the broker guarantees delivery even if the receiver is offline, and other systems **subscribe** to that topic — usually called "pub/sub." Describe it the same way you'd describe anything else:
 
 ```
 When an Order's date_shipped is set, publish it to Kafka topic 'order_shipping'.
