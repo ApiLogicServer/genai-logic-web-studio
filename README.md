@@ -27,7 +27,7 @@ codespaces_patch: |
 
 ### Governed Executable Requirements
 
-Now **Business Analysts and Product Managers** can build **enterprise-class systems** — from one prompt or your existing database, *5 readable rules instead of ~200 lines of code* — then hand off cleanly to **Dev/DevOps for extension and deployment**.
+GenAI-Logic Web Studio enables **Business Analysts and Product Managers** to build **enterprise-class systems** — from one prompt or an existing database, *5 readable rules instead of ~200 lines of code* — then hand off cleanly to **Dev/DevOps for extension and deployment**.
 
 &nbsp;
 
@@ -106,6 +106,7 @@ For exploring the product, any available model is fine. For real logic you inten
 
 You're already running in GitHub Codespaces — a cloud VS Code environment in your browser. Everything is already pre-installed.
 
+<br>
 
 <details markdown>
 <summary>The Vision — provide business prompt, get Enterprise-class system</summary>
@@ -267,7 +268,7 @@ Don't take that on faith — an AI was asked to rebuild this same logic without 
 &nbsp;
 
 <details markdown>
-<summary>&emsp;&emsp;&emsp;&emsp;Maintainable — add a rule anywhere, it finds its place</summary>
+<summary>&emsp;&emsp;&emsp;&emsp;Maintainable — add a rule anywhere, the rule finds its place</summary>
 
 <br>Traditional maintenance is mostly untangling code to find where to insert new logic. Here, **you just add the rule** — the engine sorts out the rest.
 
@@ -399,7 +400,7 @@ A partner-format order and an Admin-App order run through the identical commit p
 
 &nbsp;
 
-**APIs assume the other system is up right now.** Message brokers like Kafka don't: you **publish** a message to a **topic**, the broker guarantees delivery even if the receiver is offline, and other systems **subscribe** to that topic — usually called "pub/sub." Describe it the same way you'd describe anything else:
+**APIs assume the other system is up right now,** message brokers like Kafka don't.  Instead, you **publish** a message to a **topic**, the broker guarantees delivery even if the receiver is offline, and other systems **subscribe** to that topic — usually called "pub/sub." Describe it the same way you'd describe anything else:
 
 ```
 When an Order's date_shipped is set, publish it to Kafka topic 'order_shipping'.
