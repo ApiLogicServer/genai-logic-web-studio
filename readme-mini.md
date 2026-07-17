@@ -55,6 +55,18 @@ It fails. That's the rule you just described in plain English — actually enfor
 
 &nbsp;
 
+## Built for the Enterprise
+
+**The bottom line:** rules stay **readable** (5 lines, not 200), **trustworthy** (fire at every commit, from every caller — can't be forgotten or bypassed), and **maintainable** (add a rule anywhere, it finds its place automatically). You can read them, and trust they're enforced. Always.
+
+**Security and integration aren't separate tools to learn:**
+- RBAC — opt-in anytime: `genai-logic add-auth`.
+- Messaging — describe it in plain English, same as any rule: *"When an Order's date_shipped is set, publish it to Kafka topic 'order_shipping'."* Partners subscribe the same way — see the [EAI example](samples/basic_demo_eai/readme.md).
+
+**This scales past small demos.** A real logistics company's customs compliance system, built this way, caught an **8-figure compliance exposure** their prior hand-coded system had missed for months. A Canadian customs regulation (CBSA), cited directly, became a working duty-calculation system — no separate spec-to-code translation step. A multi-table cost allocation system across departments and GL accounts — cascading logic that defeats procedural code — had previously cost 4 Java developers 2 years without shipping; this version came from a single plain-English prompt. Once AI is unburdened from logic, it produces complete, governed, enterprise-class systems — not demos that become tech debt. [More examples →](README.md)
+
+&nbsp;
+
 ## Ask Your AI
 
 Once it's running, just ask — same AI, same context, nothing new to learn:
