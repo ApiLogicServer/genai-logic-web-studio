@@ -112,13 +112,15 @@ For current figures, see [GitHub Copilot plans & pricing](https://github.com/fea
 ## 🚀 First Time Here?
 <!-- CODESPACES-INSERT-POINT: create_codespaces_mgr.py injects browser note here — do not rename this heading -->
 
-Pick an example below and build it.
-
 &nbsp;
 
-<details markdown>
-<summary>Create a system from an existing database - api, ui, governed logic, all from a prompt</summary>
+<details markdown open>
+<summary>Create a system from an existing database</summary>
 
+<br>
+
+<details markdown>
+<summary>&emsp;&emsp;0. Provide a <strong>prompt</strong> - system creates api, ui, and <strong>governed logic</strong></summary>
 <br>
 Say this to your AI assistant (allow several minutes; the database is customer, orders, items and product):
 
@@ -127,15 +129,18 @@ Say this to your AI assistant (allow several minutes; the database is customer, 
 ```
 Create basic_demo from samples/dbs/basic_demo.sqlite.
 
-Include a notes field for orders.
-
 On Placing Orders, Check Credit    
     1. The Customer's balance is less than the credit limit
     2. The Customer's balance is the sum of the Order amount_total where date_shipped is null
     3. The Order's amount_total is the sum of the Item amount
     4. The Item amount is the quantity * unit_price
     5. The Item unit_price is copied from the Product unit_price
+
+Use case: App Integration
+    1. Publish the Order to Kafka topic 'order_shipping' when the date_shipped becomes not None.
 ```
+
+<br>
 
 > During project creation, a browser tab may auto-open (or offer to) showing it running — safe to **decline or dismiss**.
 
@@ -151,7 +156,7 @@ That's what you just declared. Next: run it, and see it enforced.
 &nbsp;
 
 <details markdown>
-<summary>&emsp;&emsp;1. Run it — see the API and logic operate</summary>
+<summary>&emsp;&emsp;1. <strong>Run</strong> it — see the API and logic operate</summary>
 
 <br>From that one prompt, you get a working, enterprise-class system:
 
@@ -162,7 +167,7 @@ That's what you just declared. Next: run it, and see it enforced.
 
 **See it running:** Press F5 using "API Logic Server Run (run project from manager)", and open the Admin App. Explore the API via Swagger, browse the data, and follow the relationships.
 
-Now trigger it: open an **unshipped** Order for Alice, edit the Widget item:
+Now trigger it: open the Order for Alice (it's unshipped), edit the Widget item:
 
 ```
 Change the quantity to a very large number. Save.
@@ -188,13 +193,13 @@ The **save fails** — note the dialog. Why? Because `Check Credit` was translat
 &nbsp;
 
 <details markdown>
-<summary>&emsp;&emsp;2. Talk to your AI — fix it, design it, understand it</summary>
+<summary>&emsp;&emsp;2. <strong>AI can fix, explain and help design</strong> — it already knows this system</summary>
 
 <br>**Same AI, same context** — just ask, in plain language:
 
 - **Fix** — *"The credit check didn't fire"* or *"The order total looks wrong."* It reads the same rule trace and log the system produces, finds the cause, and fixes it — you don't read logs or code.
 - **Design** — *"How would I model a discount rule?"* or *"What's the tradeoff here?"*
-- **Understand** — *"Tell me more about rules"* or *"How does this work?"*
+- **Explain** — *"Tell me more about rules"* or *"How does this work?"*
 
 <details markdown>
 <summary>&emsp;&emsp;&emsp;&emsp;Your dev buddies will love this — standard logging, standard debugging, in their IDE</summary>
@@ -210,7 +215,7 @@ The **save fails** — note the dialog. Why? Because `Check Credit` was translat
 &nbsp;
 
 <details markdown>
-<summary>&emsp;&emsp;3. Iterate — no system is right the first time, and that's fully supported here</summary>
+<summary>&emsp;&emsp;3. <strong>Iterate</strong> — no system is right the first time, and that's fully supported here</summary>
 
 <br>**Requirements get refined** as you see the system take shape — that's expected, not a fallback. Ask your AI assistant for a new rule, in plain English:
 
@@ -227,9 +232,11 @@ There was no `Letter` table in the model — the AI **adds it**, relates it to `
 &nbsp;
 
 <details markdown>
-<summary>&emsp;&emsp;4. Why rules are easy to Read, Trust, and Maintain</summary>
+<summary>&emsp;&emsp;4. Why rules are easy to <strong>Read, Trust, and Maintain</strong></summary>
 
-<br>Take a breath — you've just seen this happen. Here's what to call it:
+<br>&emsp;&emsp;&emsp;&emsp;A lot just happened - let's reflect on the logic:
+
+<br>
 
 <details markdown>
 <summary>&emsp;&emsp;&emsp;&emsp;Readable — ~40X less to read</summary>
@@ -301,7 +308,7 @@ Notice this rule was described for *placing* an order — nothing was said about
 &nbsp;
 
 <details markdown>
-<summary>Scaling to the Enterprise — here's what else is covered</summary>
+<summary><strong>Scaling to the Enterprise</strong> — here's what else is covered</summary>
 
 <br>You've seen the core loop working. The rest of enterprise architecture is covered too — not waving hands, here's the actual code, already in this workspace:
 
